@@ -33,5 +33,5 @@ Want to give it a try? You can download the latest version here:
 
 ---
 
-*Check out the full source code and more details on my ******[GitHub Repository](https://github.com/your-username/basic-password-manager)******.*
+*Check out the full source code and more details on my ******[GitHub Repository](https://github.com/noahie-valk/basic-password-manager)******.*
 
