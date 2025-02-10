@@ -1,5 +1,3 @@
-# Welcome to Project Shark 
-
 ## About Me
 
 I'm Noahie, and I'm on a journey to learn and grow in the field of cybersecurity. To develop a better understanding of the field, I'm diving into hands-on projects, sharing my progress, and building a space to connect with others who share the same interests.
