@@ -152,6 +152,7 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
     - Analyze **DNS Queries** to see which domains are being requested.
     - Review **DNS Responses** to identify resolved IP addresses.
     - Identify any unusual or suspicious domains that may indicate malicious activity.
+
 ## Deep Dive into Packet Structure
 
 1. **Breaking Down the OSI Model Layers**
@@ -218,6 +219,7 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - Inspect packet contents in the Packet Bytes Pane to spot exposed credentials or data.
     - **Anomalous DNS Requests:** Look for DNS queries to suspicious domains, which could indicate malware communication.
         - Use the display filter `dns` and analyze domain names for irregular patterns.
+
 ## Documenting and Reporting Findings
 
 1. **Creating Detailed Reports of Analysis**
@@ -238,6 +240,7 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
     - Annotate important sections within the packet capture, such as flags, headers, or payload data.
     - Highlight relevant fields in packet details and mark timestamps for reference.
     - Ensure screenshots are high-quality and include necessary descriptions for clarity.
+
 ## Best Practices for Packet Analysis
 
 1. **Ethical Considerations and Legal Compliance**
