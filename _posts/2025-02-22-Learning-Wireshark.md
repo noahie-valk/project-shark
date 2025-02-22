@@ -75,25 +75,21 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
 ## Capturing Network Traffic
 
 1. **Selecting the Correct Network Interface**
-    
     - Open Wireshark and navigate to the home screen where all available network interfaces are listed.
     - Identify the correct network interface based on the active connection (e.g., Ethernet, Wi-Fi). Interfaces with active traffic are typically highlighted with a live graph.
     - If unsure, disable and enable the network connection to observe which interface shows activity.
 2. **Starting and Stopping a Packet Capture**
-    
     - Click on the desired network interface to start capturing packets.
     - Wireshark will begin displaying real-time network traffic.
     - To stop capturing, click the red square "Stop" button in the toolbar.
     - It’s recommended to capture only the necessary amount of data to avoid large, unmanageable files.
 3. **Saving and Exporting Capture Files for Later Analysis**
-    
     - After stopping the capture, go to **File > Save As** to save the capture file in the default `.pcapng` format.
     - To export specific packets, use **File > Export Specified Packets**, applying filters to narrow down the data.
     - Saved capture files can be reopened later for detailed analysis by selecting **File > Open** and navigating to the saved file.
 ## Filtering and Navigating Packets
 
 1. **Using Display Filters to Narrow Down Traffic**
-    
     - Disp
     - lay filters allow users to focus on specific types of network traffic by filtering out unrelated packets.
     - To apply a display filter, enter the desired filter syntax in the filter bar at the top of the Wireshark interface and press Enter.
@@ -104,7 +100,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - `tcp.port == 80` – Displays traffic on a specific port (in this case, HTTP on port 80).
     - Filters can be combined using logical operators, such as `and`, `or`, and `not`. For example: `http and ip.addr == 192.168.1.1`.
 2. **Applying Capture Filters Before Starting the Capture**
-    
     - Capture filters limit the traffic that Wireshark collects, reducing the amount of data to analyze.
     - Unlike display filters, capture filters must be set before starting the packet capture.
     - To apply a capture filter, click on the interface options before starting the capture and enter the desired filter syntax.
@@ -114,17 +109,16 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - `net 192.168.1.0/24` – Captures traffic within a specific subnet.
         - `icmp` – Captures only ICMP (ping) traffic.
 3. **Understanding the Packet List, Details, and Bytes Panes**
-    
     - **Packet List Pane:** Displays a summary of all captured packets, including columns like No., Time, Source, Destination, Protocol, and Info.
         - Click on any packet to view more details.
     - **Packet Details Pane:** Shows a hierarchical breakdown of the selected packet, organized by protocol layers.
         - Expand or collapse each section to inspect specific protocol fields.
     - **Packet Bytes Pane:** Displays the raw data of the selected packet in both hexadecimal and ASCII formats.
         - Useful for low-level analysis and understanding the exact contents of the packet.
+
 ## Analyzing Different Protocols
 
 1. **Identifying Common Protocols (TCP, UDP, ICMP, etc.)**
-    
     - Wireshark captures a wide variety of network protocols, each serving different purposes.
     - **TCP (Transmission Control Protocol):** Ensures reliable data transmission with error checking and acknowledgment features.
     - **UDP (User Datagram Protocol):** Provides faster, connectionless communication without error checking, often used in streaming.
@@ -134,7 +128,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - `udp` – Shows only UDP packets.
         - `icmp` – Filters for ICMP traffic.
 2. **Analyzing HTTP Traffic: Requests and Responses**
-    
     - HTTP (Hypertext Transfer Protocol) is the foundation of data communication on the web.
     - Use the display filter `http` to isolate HTTP packets.
     - Examine **HTTP Requests** (e.g., GET, POST) and **Responses** (e.g., status codes like 200 OK, 404 Not Found).
@@ -146,7 +139,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         ```
         
 3. **Investigating DNS Queries and Responses**
-    
     - DNS (Domain Name System) translates human-readable domain names into IP addresses.
     - Use the display filter `dns` to view DNS traffic.
     - Analyze **DNS Queries** to see which domains are being requested.
@@ -156,7 +148,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
 ## Deep Dive into Packet Structure
 
 1. **Breaking Down the OSI Model Layers**
-    
     - The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a network into seven distinct layers:
         - **Layer 1 - Physical:** Deals with the hardware transmission of raw data bits (e.g., cables, switches).
         - **Layer 2 - Data Link:** Manages node-to-node data transfer and error detection (e.g., Ethernet frames).
@@ -167,7 +158,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - **Layer 7 - Application:** Provides network services to end-users (e.g., HTTP, DNS).
     - In Wireshark, packets are dissected according to these layers, allowing users to analyze data at each level.
 2. **Examining Ethernet Frames, IP Packets, and TCP Segments**
-    
     - **Ethernet Frames (Layer 2):**
         - Contain MAC addresses for source and destination devices.
         - Include an EtherType field to indicate the protocol used in the payload (e.g., IPv4, IPv6).
@@ -180,7 +170,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - Include sequence and acknowledgment numbers to ensure reliable data transfer.
         - Have control flags like SYN, ACK, FIN, and RST to manage connection states.
 3. **Understanding Flags, Sequence Numbers, and Acknowledgments**
-    
     - **Flags:** Control bits in the TCP header that manage the state of connections.
         - **SYN:** Initiates a connection.
         - **ACK:** Acknowledges receipt of data.
@@ -191,7 +180,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
 ## Identifying Anomalies and Issues
 
 1. **Spotting Retransmissions, Duplicates, and Packet Loss**
-    
     - **Retransmissions:** Occurs when a packet is lost or corrupted, prompting the sender to resend it.
         - Use the display filter `tcp.analysis.retransmission` to identify retransmitted packets.
         - High retransmission rates may indicate network congestion or hardware issues.
@@ -202,7 +190,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - Detect packet loss by observing gaps in sequence numbers or using Wireshark’s built-in TCP analysis tools.
         - Consistent packet loss could suggest issues with network reliability.
 5. **Detecting Unusual Traffic Patterns**
-    
     - **Unexpected Protocols:** Look for protocols that shouldn’t be present in the network environment.
         - Apply filters like `!(tcp or udp or icmp)` to highlight unusual protocols.
     - **High Traffic Volume:** Sudden spikes in traffic may indicate problems like network loops or denial-of-service (DoS) attacks.
@@ -210,7 +197,6 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
     - **Frequent Connection Attempts:** Repeated connection attempts to specific ports may suggest port scanning activities.
         - Filter using `tcp.flags.syn == 1 and tcp.flags.ack == 0` to see initial connection attempts.
 6. **Recognizing Potential Security Threats**
-    
     - **Suspicious IP Addresses:** Identify traffic from known malicious IP addresses.
         - Use filters like `ip.src == x.x.x.x` or `ip.dst == x.x.x.x` to track specific IPs.
         - Cross-reference IPs with threat intelligence databases.
@@ -223,19 +209,16 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
 ## Documenting and Reporting Findings
 
 1. **Creating Detailed Reports of Analysis**
-    
     - Clearly define the purpose of the analysis and what was investigated.
     - Include key details such as network topology, capture environment, and time of capture.
     - Structure reports in a logical manner, separating sections for different types of findings.
     - Use precise language to describe observations without speculation.
 2. **Highlighting Key Insights and Anomalies**
-    
     - Summarize significant findings with a focus on patterns, anomalies, and irregularities.
     - Provide context for detected anomalies, explaining their potential impact on network performance or security.
     - Compare normal and abnormal network behavior to illustrate deviations.
     - Include recommendations based on findings to guide network administrators or security teams.
 3. **Using Screenshots and Annotations in Reports**
-    
     - Capture key Wireshark screenshots to visually support findings.
     - Annotate important sections within the packet capture, such as flags, headers, or payload data.
     - Highlight relevant fields in packet details and mark timestamps for reference.
@@ -244,20 +227,17 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
 ## Best Practices for Packet Analysis
 
 1. **Ethical Considerations and Legal Compliance**
-    
     - Always obtain proper authorization before capturing network traffic.
     - Be aware of privacy laws and regulations related to packet analysis.
     - Avoid capturing or storing sensitive data unless explicitly required and authorized.
     - Adhere to organizational policies and industry best practices when performing packet captures.
 2. **Tips for Efficient and Effective Packet Analysis**
-    
     - Use display and capture filters to focus on relevant traffic and reduce noise.
     - Familiarize yourself with common network protocols to interpret packet data effectively.
     - Save and document packet captures for future reference and troubleshooting.
     - Utilize Wireshark’s built-in tools, such as protocol analyzers and statistics, to speed up analysis.
     - Regularly update Wireshark and associated libraries to maintain compatibility with modern protocols.
 3. **Continuous Learning and Staying Updated with Network Protocols**
-    
     - Follow networking and cybersecurity forums, blogs, and publications to stay informed on emerging threats and technologies.
     - Participate in hands-on labs, capture-the-flag (CTF) events, and network security competitions.
     - Experiment with different packet capture scenarios to expand practical knowledge.
