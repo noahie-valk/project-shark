@@ -177,6 +177,7 @@ Enter **Wireshark**—one of the most popular tools for packet analysis. This op
         - **RST:** Resets a connection.
     - **Sequence Numbers:** Track the order of packets, ensuring data is reassembled correctly on the receiving end.
     - **Acknowledgment Numbers:** Confirm receipt of packets, facilitating reliable communication between devices.
+   
 ## Identifying Anomalies and Issues
 
 1. **Spotting Retransmissions, Duplicates, and Packet Loss**
