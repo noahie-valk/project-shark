@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Lessons from Bandit: Issue 1"
+date: 2025-03-01
+categories: project-updates
+---
+
 # Issue 1
 
 ## Introduction
